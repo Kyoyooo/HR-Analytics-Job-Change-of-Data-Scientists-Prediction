@@ -18,8 +18,8 @@
 6. [Kết quả](#-results)
 7. [Cấu trúc đồ án](#-project-structure)
 8. [Thách thức & Giải pháp](#-challenges--solutions)
-9. [Hướng phát triển tiếp theo (Future Improvements)] (#-future-improvements)
-10. [Đóng góp (Contributors)]
+9. [Hướng phát triển tiếp theo (Future Improvements)](#-future-improvements)
+10. [Đóng góp (Contributors)](#-contributors)
 11. [Bản quyền (License)](#-thông-tin-tác-giả)
 
 ---
