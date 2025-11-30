@@ -117,7 +117,7 @@ Mô hình được xây dựng thủ công với thuật toán **Gradient Descen
 
 1.  **Clone đồ án:**
     ```bash
-    git clone [https://github.com/Kyoyooo/HR-Analytics-Job-Change-of-Data-Scientists-Prediction.git](https://github.com/Kyoyooo/HR-Analytics-Job-Change-of-Data-Scientists-Prediction.git)
+    git clone https://github.com/Kyoyooo/HR-Analytics-Job-Change-of-Data-Scientists-Prediction.git
     cd HR-Analytics-Job-Change-of-Data-Scientists-Prediction
     ```
 
