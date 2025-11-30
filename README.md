@@ -115,7 +115,7 @@ Mô hình được xây dựng thủ công với thuật toán **Gradient Descen
         * Sử dụng công thức hàm Sigmoid $\sigma(z) = \frac{1}{1 + e^{-z}}$. Nó ép mọi giá trị đầu vào $z$ về khoảng $(0, 1)$ để làm xác suất.
         * Nếu $z$ là một số âm cực lớn (ví dụ -1000), $e^{-(-1000)} = e^{1000}$ sẽ ra một số khổng lồ gây lỗi tràn bộ nhớ (Overflow). Vậy nên sử dụng `np.clip(z, -250, 250)` giới hạn $z$ chỉ nằm trong khoảng -250 đến 250. Điều này đảm bảo tính ổn định số học (Numerical Stability) mà không làm sai lệch kết quả (vì Sigmoid của -250 đã xấp xỉ 0 và 250 đã xấp xỉ 1).
     * Hàm huấn luyện `fit` (thực hiện thuật toán **Gradient Descent**): Quy trình cho mỗi vòng lặp như sau
-        * Forward Pass: Tính từ Input ($X$) ra Dự đoán ($y_pred$).
+        * Forward Pass: Tính từ Input ($X$) ra Dự đoán (y_pred).
         * Backward Pass: Tính sai số giữa Dự đoán và Thực tế ($y$), từ đó tính đạo hàm ($dw, db$).
         * Optimization: Cập nhật $w$ và $b$ để giảm sai số ở lần sau.
         * Logging: Lưu lại giá trị của hàm Loss để biết mô hình có đang học tốt hay không. Công thức hàm Loss: $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$$
