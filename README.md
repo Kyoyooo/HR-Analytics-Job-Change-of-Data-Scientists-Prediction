@@ -104,12 +104,27 @@ Sử dụng thư viện **Matplotlib** và **Seaborn** để trực quan hoá d�
 ### 3. Xây dựng mô hình Logistic Regression
 Mô hình được xây dựng thủ công với thuật toán **Gradient Descent**.
 
-* **Hypothesis (Sigmoid):**
-    $$h_\theta(x) = \frac{1}{1 + e^{-z}} \quad \text{với } z = \theta^T x + b$$
-* **Loss Function (Binary Cross Entropy):**
-    $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$$
-* **Update Rule (Gradient Descent):**
-    $$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}$$
+* **Lớp LogisticRegressionNumPy**
+    * Hàm khởi tạo `__init__`:
+        * Chức năng: Thiết lập các siêu tham số (Hyperparameters) và biến trạng thái.
+        * `learning_rate` (tốc độ học): Quyết định bước nhảy lớn hay nhỏ khi cập nhật trọng số.
+        * `num_iterations`: Số lần lặp lại quá trình học (epochs).
+        * `weights`, `bias`: Các tham số cần học của mô hình ($w$ và $b$). Ban đầu chưa có giá trị.
+        * `losses`: Danh sách lưu giá trị hàm mất mát sau mỗi vòng lặp để vẽ biểu đồ theo dõi.
+    * Hàm kích hoạt `_sigmoid`:
+        * Sử dụng công thức hàm Sigmoid $\sigma(z) = \frac{1}{1 + e^{-z}}$. Nó ép mọi giá trị đầu vào $z$ về khoảng $(0, 1)$ để làm xác suất.
+        * Nếu $z$ là một số âm cực lớn (ví dụ -1000), $e^{-(-1000)} = e^{1000}$ sẽ ra một số khổng lồ gây lỗi tràn bộ nhớ (Overflow). Vậy nên sử dụng `np.clip(z, -250, 250)` giới hạn $z$ chỉ nằm trong khoảng -250 đến 250. Điều này đảm bảo tính ổn định số học (Numerical Stability) mà không làm sai lệch kết quả (vì Sigmoid của -250 đã xấp xỉ 0 và 250 đã xấp xỉ 1).
+    * Hàm huấn luyện `fit` (thực hiện thuật toán **Gradient Descent**): Quy trình cho mỗi vòng lặp như sau
+        * Forward Pass: Tính từ Input ($X$) ra Dự đoán ($y_pred$).
+        * Backward Pass: Tính sai số giữa Dự đoán và Thực tế ($y$), từ đó tính đạo hàm ($dw, db$).
+        * Optimization: Cập nhật $w$ và $b$ để giảm sai số ở lần sau.
+        * Logging: Lưu lại giá trị của hàm Loss để biết mô hình có đang học tốt hay không. Công thức hàm Loss: $$J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} [y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$$
+    * Hàm dự báo `predict_proba` và `predict`:
+        * `predict_proba`: Trả về con số thực từ 0 đến 1 (ví dụ: 0.85 nghĩa là 85% khả năng muốn nghỉ việc).
+        * `predict`: Trả về nhãn cứng (0 hoặc 1) dựa trên ngưỡng cắt (threshold).
+* **Các hàm đánh giá**
+    * Hàm `accuracy_score_numpy`: Tính tỷ lệ phần trăm các phân loại chính xác (Accuracy).
+    * Hàm `confusion_matrix_metrics`: Tính các chỉ số Precision, Recall, F1-score. 
 
 ---
 
