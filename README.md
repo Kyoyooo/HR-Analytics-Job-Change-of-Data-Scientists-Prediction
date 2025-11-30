@@ -26,17 +26,17 @@
 
 ## Giới thiệu
 
-### Mô tả bài toán
+* **Mô tả bài toán:**
 Một công ty hoạt động trong lĩnh vực Dữ liệu lớn (Big Data) và Khoa học dữ liệu (Data Science) muốn tuyển dụng các nhà khoa học dữ liệu từ những người đã hoàn thành xuất sắc các khóa học do chính công ty tổ chức. Có rất nhiều người đăng ký tham gia khóa đào tạo của họ. Vì vậy công ty muốn xác định xem ứng viên nào thực sự muốn làm việc cho họ sau khi đào tạo xong hoặc đang tìm kiếm cơ hội việc làm mới.
 
-### Động lực & Ứng dụng
-* **Giảm chi phí:** Việc này giúp giảm thiểu chi phí và thời gian, cũng như nâng cao chất lượng đào tạo, hỗ trợ việc lên kế hoạch khóa học và phân loại ứng viên.
-* **Chiến lược nhân sự:** Hiểu được các yếu tố (kinh nghiệm, thành phố, giờ học,...) ảnh hưởng đến quyết định nghỉ việc như thế nào, giúp cho HR có thể đưa ra chính sách giữ chân nhân tài tốt hơn.
+* **Động lực & Ứng dụng:**
+   * **Giảm chi phí:** Việc này giúp giảm thiểu chi phí và thời gian, cũng như nâng cao chất lượng đào tạo, hỗ trợ việc lên kế hoạch khóa học và phân loại ứng viên.
+   * **Chiến lược nhân sự:** Hiểu được các yếu tố (kinh nghiệm, thành phố, giờ học,...) ảnh hưởng đến quyết định nghỉ việc như thế nào, giúp cho HR có thể đưa ra chính sách giữ chân nhân tài tốt hơn.
 
-### Mục tiêu
+* **Mục tiêu:**
 Xây dựng mô hình phân lớp nhị phân (Binary Classification):
-* **Input:** Thông tin nhân khẩu học, kinh nghiệm, quá trình đào tạo,...
-* **Output:** Xác suất ứng viên tìm kiếm việc làm mới (Target: 1 = Có, 0 = Không).
+   * **Input:** Thông tin nhân khẩu học, kinh nghiệm, quá trình đào tạo,...
+   * **Output:** Xác suất ứng viên tìm kiếm việc làm mới (Target: 1 = Có, 0 = Không).
 
 ---
 
